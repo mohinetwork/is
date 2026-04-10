@@ -1,11 +1,9 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { authMiddleware } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher([
-  "/anmixai/profile(.*)",
-  "/anmixai/settings(.*)",
-  "/anmixai/billing(.*)",
-]);
+const protectedPrefixes = ["/anmixai/profile", "/anmixai/settings", "/anmixai/billing"];
+const isProtectedRoute = (req: NextRequest) =>
+  protectedPrefixes.some((route) => req.nextUrl.pathname.startsWith(route));
 
 const clerkPubKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ?? "";
 const clerkSecretKey = process.env.CLERK_SECRET_KEY ?? "";
@@ -17,10 +15,14 @@ const isClerkConfigured =
   !clerkSecretKey.includes("YOUR_KEY");
 
 export default isClerkConfigured
-  ? clerkMiddleware(async (auth, req) => {
-      if (isProtectedRoute(req)) {
-        await auth.protect();
-      }
+  ? authMiddleware({
+      publicRoutes: ["/(.*)"],
+      afterAuth(auth, req) {
+        if (isProtectedRoute(req) && !auth.userId) {
+          const signInUrl = new URL("/anmixai/sign-in", req.url);
+          return NextResponse.redirect(signInUrl);
+        }
+      },
     })
   : (_req: NextRequest) => NextResponse.next();
 

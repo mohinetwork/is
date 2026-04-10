@@ -80,12 +80,12 @@ const Integrations = () => {
                 <div className="aspect-16/10 group relative mx-auto flex max-w-80 items-center justify-between sm:max-w-xs lg:max-w-md">
                     <div
                         role="presentation"
-                        className="bg-linear-to-b border-foreground/5 absolute inset-0 z-10 aspect-square animate-spin hidden lg:block items-center justify-center rounded-full border-t from-primary/15 to-transparent to-25% opacity-0 duration-[3.5s] group-hover:opacity-100"
+                        className="bg-gradient-to-b border-foreground/5 absolute inset-0 z-10 aspect-square animate-spin hidden lg:block items-center justify-center rounded-full border-t from-primary/15 to-transparent to-[25%] opacity-0 duration-[3.5s] group-hover:opacity-100"
                     />
 
                     <div
                         role="presentation"
-                        className="bg-linear-to-b border-foreground/5 absolute inset-16 z-10 aspect-square scale-90 animate-spin items-center justify-center rounded-full border-t from-primary/15 to-transparent to-25% opacity-0 duration-[3.5s] group-hover:opacity-100"
+                        className="bg-gradient-to-b border-foreground/5 absolute inset-16 z-10 aspect-square scale-90 animate-spin items-center justify-center rounded-full border-t from-primary/15 to-transparent to-[25%] opacity-0 duration-[3.5s] group-hover:opacity-100"
                         style={{ animationDirection: 'reverse' }}
                     />
 
@@ -94,7 +94,7 @@ const Integrations = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-linear-to-b from-foreground/10 absolute inset-0 flex aspect-square items-center justify-center rounded-full border-t border-foreground/5 to-transparent to-25% z-30"
+                        className="bg-gradient-to-b from-foreground/10 absolute inset-0 flex aspect-square items-center justify-center rounded-full border-t border-foreground/5 to-transparent to-[25%] z-30"
                     >
                         <IntegrationCard
                             className="absolute left-0 top-1/4 -translate-x-1/6 -translate-y-1/4"
@@ -115,7 +115,7 @@ const Integrations = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="bg-linear-to-b from-foreground/10 absolute inset-16 flex aspect-square scale-90 items-center justify-center rounded-full border-t border-foreground/5 to-transparent to-25% z-30"
+                        className="bg-gradient-to-b from-foreground/10 absolute inset-16 flex aspect-square scale-90 items-center justify-center rounded-full border-t border-foreground/5 to-transparent to-[25%] z-30"
                     >
                         <IntegrationCard
                             className="absolute top-0 -translate-y-1/2"
@@ -131,7 +131,7 @@ const Integrations = () => {
                         />
                     </motion.div>
 
-                    <Container animation="blurIn" delay={0.5} className="absolute inset-x-0 bottom-0 lg:bottom-1/10 mx-auto my-2 flex justify-center gap-2 w-fit scale-90 lg:scale-100">
+                    <Container animation="blurIn" delay={0.5} className="absolute inset-x-0 bottom-0 lg:bottom-[10%] mx-auto my-2 flex justify-center gap-2 w-fit scale-90 lg:scale-100">
                         <div className="bg-primary/5 relative z-20 rounded-full border border-foreground/10 backdrop-blur-sm p-1.5 group">
                             <IntegrationCard className="size-14 bg-primary/5">
                                 <Image src="/images/anmix-logo.png" alt="ANMIX AI" width={32} height={32} className="text-primary group-hover:scale-110 group-active:scale-95 transition-all duration-300 object-contain" />

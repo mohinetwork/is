@@ -55,7 +55,7 @@ const Workflow = () => {
                             >
                                 <div className={cn(
                                     "text-[120px] md:text-[140px] font-bold leading-none",
-                                    "bg-linear-to-b from-primary/40 to-primary/0",
+                                    "bg-gradient-to-b from-primary/40 to-primary/0",
                                     "text-transparent bg-clip-text select-none"
                                 )}>
                                     {step.number}

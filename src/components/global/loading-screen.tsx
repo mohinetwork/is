@@ -71,7 +71,7 @@ const LoadingScreen = () => {
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 z-10000 bg-background flex items-center justify-center"
+            className="fixed inset-0 z-[10000] bg-background flex items-center justify-center"
             style={{ willChange: 'transform', opacity: 1 }}
         >
             <div className="flex flex-col items-center gap-3">

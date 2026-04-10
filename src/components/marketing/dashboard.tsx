@@ -63,7 +63,7 @@ const Dashboard = () => {
                         Upgrade Plan
                     </button>
                     <div className="flex items-center gap-2 px-3 py-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer">
-                        <div className="size-7 rounded-full bg-linear-to-br from-primary to-blue-500 flex items-center justify-center">
+                        <div className="size-7 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center">
                             <span className="text-white font-semibold text-xs">SS</span>
                         </div>
                         <div className="flex-1 min-w-0">
@@ -102,7 +102,7 @@ const Dashboard = () => {
                             <BellIcon className="w-4 h-4 text-foreground/60" />
                             <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full" />
                         </button>
-                        <div className="size-8 rounded-full bg-linear-to-br from-primary to-blue-500 flex items-center justify-center cursor-pointer">
+                        <div className="size-8 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center cursor-pointer">
                             <span className="text-white font-semibold text-xs leading-none mt-0.5">SS</span>
                         </div>
                     </div>
@@ -203,7 +203,7 @@ const Dashboard = () => {
                                 <div className="grid grid-cols-3 gap-3">
                                     <div className="bg-foreground/2 border border-foreground/10 rounded-lg p-3 hover:border-primary/30 transition-colors cursor-pointer">
                                         <div className="flex flex-col items-center text-center">
-                                            <div className="size-10 rounded-full bg-linear-to-br from-primary to-blue-500 flex items-center justify-center mb-2">
+                                            <div className="size-10 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center mb-2">
                                                 <span className="text-white font-semibold text-xs">SS</span>
                                             </div>
                                             <p className="text-xs font-semibold truncate w-full">Shreyas S</p>
@@ -212,7 +212,7 @@ const Dashboard = () => {
                                     </div>
                                     <div className="bg-foreground/2 border border-foreground/10 rounded-lg p-3 hover:border-primary/30 transition-colors cursor-pointer">
                                         <div className="flex flex-col items-center text-center">
-                                            <div className="size-10 rounded-full bg-linear-to-br from-tertiary to-purple-500 flex items-center justify-center mb-2">
+                                            <div className="size-10 rounded-full bg-gradient-to-br from-tertiary to-purple-500 flex items-center justify-center mb-2">
                                                 <span className="text-white font-semibold text-xs">JD</span>
                                             </div>
                                             <p className="text-xs font-semibold truncate w-full">John Doe</p>
@@ -221,7 +221,7 @@ const Dashboard = () => {
                                     </div>
                                     <div className="bg-foreground/2 border border-foreground/10 rounded-lg p-3 hover:border-primary/30 transition-colors cursor-pointer">
                                         <div className="flex flex-col items-center text-center">
-                                            <div className="size-10 rounded-full bg-linear-to-br from-orange-500 to-red-500 flex items-center justify-center mb-2">
+                                            <div className="size-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-2">
                                                 <span className="text-white font-semibold text-xs">AS</span>
                                             </div>
                                             <p className="text-xs font-semibold truncate w-full">Alice Smith</p>

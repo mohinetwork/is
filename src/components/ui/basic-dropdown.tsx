@@ -123,7 +123,7 @@ export function DropdownTrigger({
 
   return (
     <div
-      ref={triggerRef}
+      ref={triggerRef as React.RefObject<HTMLDivElement>}
       onClick={() => setOpen(!open)}
       className={`inline-flex ${className}`}
       aria-expanded={open}
@@ -244,7 +244,7 @@ export function DropdownContent({
     <AnimatePresence>
       {open && (
         <motion.div
-          ref={contentRef}
+          ref={contentRef as React.RefObject<HTMLDivElement>}
           variants={dropdownVariants as any}
           initial="hidden"
           animate="visible"

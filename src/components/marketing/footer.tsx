@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import { cn } from "@/utils";
+import { ArrowUpRightIcon } from "lucide-react";
 
 const Footer = () => {
 
@@ -21,7 +21,7 @@ const Footer = () => {
 
     return (
         <footer className="w-full relative mt-16 lg:mt-24 overflow-hidden">
-            <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-foreground/0 via-foreground/20 to-foreground/0" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-foreground/0 via-foreground/20 to-foreground/0" />
             <div className="absolute top-0 inset-x-0 w-1/2 mx-auto h-4 bg-foreground/40 blur-[4rem]" />
 
             <Wrapper className="py-12">
@@ -120,25 +120,17 @@ const Footer = () => {
                         © {new Date().getFullYear()} ANMIX AI. All rights reserved.
                     </p>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                         {socialLinks.map((social) => (
                             <Link
                                 key={social.label}
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="opacity-60 hover:opacity-100 transition-opacity"
+                                className="flex items-center gap-2 rounded-full border border-foreground/10 px-3 py-1.5 text-sm text-foreground/80 hover:text-foreground hover:border-foreground/30 transition-colors"
                             >
-                                <Image
-                                    src={`/icons/integrations/${social.icon}.svg`}
-                                    alt={social.label}
-                                    width={20}
-                                    height={20}
-                                    className={cn(
-                                        "size-5 grayscale",
-                                        social.icon === "x" && "size-4",
-                                    )}
-                                />
+                                <span>{social.label}</span>
+                                <ArrowUpRightIcon className="size-4" />
                             </Link>
                         ))}
                     </div>

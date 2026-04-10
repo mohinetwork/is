@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const generateMetadata = ({
-    title = `${process.env.NEXT_PUBLIC_APP_NAME} | Home`,
+    title = `${process.env.NEXT_PUBLIC_APP_NAME ?? "ANMIX AI"} | Home`,
     description = `All-in-one AI platform for chat, coding, image generation, video creation, and voice agents — powered by ANMIX models.`,
     image = "/images/og-image.png",
     icons = [

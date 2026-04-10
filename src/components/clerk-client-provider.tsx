@@ -14,8 +14,6 @@ export function ClerkClientProvider({
       publishableKey={publishableKey}
       signInUrl="/anmixai/sign-in"
       signUpUrl="/anmixai/sign-up"
-      signInFallbackRedirectUrl="/anmixai"
-      signUpFallbackRedirectUrl="/anmixai"
     >
       {children}
     </ClerkProvider>

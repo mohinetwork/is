@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const AboutPage = () => {
     return (
-        <div className="w-full min-h-dvh pt-18 relative overflow-hidden">
+        <div className="w-full min-h-[100dvh] pt-[72px] relative overflow-hidden">
             <Background />
 
             <Wrapper className="relative z-10 py-16 lg:py-24">
@@ -15,7 +15,7 @@ const AboutPage = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl md:text-5xl font-semibold bg-linear-to-r from-foreground to-foreground/70 text-transparent bg-clip-text"
+                        className="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 text-transparent bg-clip-text"
                     >
                         About ANMIX AI
                     </motion.h1>

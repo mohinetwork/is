@@ -117,7 +117,7 @@ export default function GradientButton({
     >
       <div
         className={cn(
-          "absolute inset-0 rounded-lg bg-linear-to-b p-[2px]",
+          "absolute inset-0 rounded-lg bg-gradient-to-b p-[2px]",
           "dark:bg-none",
           colors.light.border,
           colors.dark.border
@@ -142,21 +142,21 @@ export default function GradientButton({
 
       <div
         className={cn(
-          "absolute inset-[2px] rounded-lg bg-linear-to-r opacity-90",
+          "absolute inset-[2px] rounded-lg bg-gradient-to-r opacity-90",
           colors.light.base,
           "dark:from-[#0C1F21] dark:via-[#0C1F21] dark:to-[#0C1F21]"
         )}
       />
       <div
         className={cn(
-          "absolute inset-[2px] rounded-lg bg-linear-to-b opacity-80",
+          "absolute inset-[2px] rounded-lg bg-gradient-to-b opacity-80",
           colors.light.overlay,
           colors.dark.overlay
         )}
       />
       <div
         className={cn(
-          "absolute inset-[2px] rounded-lg bg-linear-to-br",
+          "absolute inset-[2px] rounded-lg bg-gradient-to-br",
           colors.light.accent,
           colors.dark.accent
         )}
@@ -173,7 +173,7 @@ export default function GradientButton({
       <div className="relative flex items-center justify-center gap-2">
         <span
           className={cn(
-            "bg-linear-to-b bg-clip-text font-light text-lg text-transparent tracking-tighter",
+            "bg-gradient-to-b bg-clip-text font-light text-lg text-transparent tracking-tighter",
             colors.light.text,
             colors.dark.text,
             `dark:drop-shadow-[0_0_12px_${colors.dark.textGlow}]`
@@ -185,7 +185,7 @@ export default function GradientButton({
 
       <div
         className={cn(
-          "absolute inset-[2px] rounded-lg bg-linear-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+          "absolute inset-[2px] rounded-lg bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100",
           colors.light.hover,
           colors.dark.hover
         )}

@@ -108,7 +108,7 @@ const WallOfLove = () => {
                                 </div>
 
                                 <p className="text-base md:text-lg lg:text-xl text-foreground/90 text-balance leading-relaxed mt-6 max-w-full md:max-w-xl lg:max-w-2xl">
-                                    "{currentTestimonial.text}"
+                                    &ldquo;{currentTestimonial.text}&rdquo;
                                 </p>
 
                                 <div className="mt-6">

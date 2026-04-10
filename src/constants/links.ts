@@ -40,4 +40,8 @@ export const footerLinks = {
     ]
 };
 
-export const socialLinks = [];
+export const socialLinks = [
+    { label: "X (Twitter)", href: "https://x.com/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/" },
+    { label: "GitHub", href: "https://github.com/" },
+] as const;

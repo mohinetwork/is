@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 
 interface AIVoiceProps {
   onTranscription?: (text: string) => void;
+  apiKey?: string;
 }
 
-const DEEPGRAM_API_KEY = process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY || "";
-
-export default function AI_Voice({ onTranscription }: AIVoiceProps) {
+export default function AI_Voice({ onTranscription, apiKey }: AIVoiceProps) {
+    const deepgramKey = apiKey || process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY || "";
     const [submitted, setSubmitted] = useState(false);
     const [time, setTime] = useState(0);
     const [isClient, setIsClient] = useState(false);
@@ -78,7 +78,7 @@ export default function AI_Voice({ onTranscription }: AIVoiceProps) {
     };
 
     const handleTranscribe = async (blob: Blob) => {
-        if (!DEEPGRAM_API_KEY) {
+        if (!deepgramKey) {
             console.error("Deepgram API key is missing. Set NEXT_PUBLIC_DEEPGRAM_API_KEY.");
             return;
         }
@@ -88,7 +88,7 @@ export default function AI_Voice({ onTranscription }: AIVoiceProps) {
             const response = await fetch("https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true&language=hi", {
                 method: "POST",
                 headers: {
-                    Authorization: `Token ${DEEPGRAM_API_KEY}`,
+                    Authorization: `Token ${deepgramKey}`,
                     "Content-Type": "audio/webm",
                 },
                 body: blob,

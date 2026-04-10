@@ -11,7 +11,7 @@ import Cta from "@/components/marketing/cta";
 
 const HomePage = () => {
     return (
-        <div className="w-full min-h-dvh pt-18">
+        <div className="w-full min-h-[100dvh] pt-[72px]">
             <Background />
             <Hero />
             <Socials />

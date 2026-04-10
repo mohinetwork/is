@@ -1,15 +1,6 @@
-import Image from "next/image";
-
 const Background = () => {
     return (
-        <div className="w-full h-dvh absolute top-0 left-0 z-0 overflow-hidden">
-            {/* <Image
-                src="/images/gradient.svg"
-                alt="background"
-                width={1024}
-                height={1024}
-                className="object-cover top-0 inset-x-0 w-full mx-auto h-1/2 md:h-3/5 lg:h-4/5"
-            /> */}
+        <div className="w-full h-[100dvh] absolute top-0 left-0 z-0 overflow-hidden">
             <div className="absolute top-0 inset-x-0 w-1/4 mx-auto h-1/4 blur-[8rem] bg-primary/30"></div>
 
             <div

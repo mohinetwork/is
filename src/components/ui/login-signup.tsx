@@ -18,11 +18,11 @@ import { Separator } from "@/components/ui/separator";
 import {
   Eye,
   EyeOff,
-  Github,
   Lock,
   Mail,
   ArrowRight,
-  Chrome,
+  Code2,
+  Globe,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useSignIn, useSignUp, SignInButton } from "@clerk/nextjs";
@@ -413,25 +413,25 @@ export default function LoginCardSection() {
                   <SignInButton mode="redirect" redirectUrl="/">
                     <Button
                       type="button"
-                      variant="outline"
-                      className="h-10 w-full rounded-lg border-zinc-800 bg-zinc-950 text-zinc-50 hover:bg-zinc-900/80"
-                      disabled={isSubmitting}
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      GitHub
-                    </Button>
-                  </SignInButton>
-                  <SignInButton mode="redirect" redirectUrl="/">
-                    <Button
+                    variant="outline"
+                    className="h-10 w-full rounded-lg border-zinc-800 bg-zinc-950 text-zinc-50 hover:bg-zinc-900/80"
+                    disabled={isSubmitting}
+                  >
+                    <Code2 className="h-4 w-4 mr-2" />
+                    GitHub
+                  </Button>
+                </SignInButton>
+                <SignInButton mode="redirect" redirectUrl="/">
+                  <Button
                       type="button"
-                      variant="outline"
-                      className="h-10 w-full rounded-lg border-zinc-800 bg-zinc-950 text-zinc-50 hover:bg-zinc-900/80"
-                      disabled={isSubmitting}
-                    >
-                      <Chrome className="h-4 w-4 mr-2" />
-                      Google
-                    </Button>
-                  </SignInButton>
+                    variant="outline"
+                    className="h-10 w-full rounded-lg border-zinc-800 bg-zinc-950 text-zinc-50 hover:bg-zinc-900/80"
+                    disabled={isSubmitting}
+                  >
+                    <Globe className="h-4 w-4 mr-2" />
+                    Google
+                  </Button>
+                </SignInButton>
                 </div>
               </div>
             </Tabs>

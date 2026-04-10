@@ -30,7 +30,7 @@ export default function RootLayout({
             </head>
             <body
                 className={cn(
-                    "min-h-dvh bg-background text-foreground font-base antialiased overflow-x-hidden dark",
+                    "min-h-[100dvh] bg-background text-foreground font-base antialiased overflow-x-hidden dark",
                     base.variable,
                     heading.variable,
                     handwriting.variable,
