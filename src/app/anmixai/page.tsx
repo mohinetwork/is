@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useState, useRef, useEffect } from "react";
 import { 
@@ -219,38 +220,39 @@ export default function AnmixDashboard() {
 
       let maybeImageUrl: string | undefined;
       const imgPreview = previews?.find((p) => p.type === "image");
-      if (imgPreview) {
-        if ((imgPreview as any).file) {
-          try {
-            const fd = new FormData();
-            fd.append("file", (imgPreview as any).file);
-            const uploadRes = await fetch("/api/upload-image", {
-              method: "POST",
-              body: fd,
-            });
-            const uploadData = await uploadRes.json();
-            if (!uploadRes.ok || !uploadData?.url) {
-              throw new Error(uploadData?.error || "Failed to upload image");
-            }
-            maybeImageUrl = uploadData.url;
-          } catch (upErr) {
-            setMessages((prev) =>
-              prev.map((m) =>
-                m.id === assistantMsgId
-                  ? {
-                      ...m,
-                      content: "Failed to upload image. Please try again.",
-                      kind: "text" as const,
-                      previews: undefined,
-                    }
-                  : m,
-              ),
-            );
-            setIsTyping(false);
-            return;
+      if (imgPreview && (imgPreview as any).file) {
+        try {
+          const fd = new FormData();
+          fd.append("file", (imgPreview as any).file);
+          const uploadRes = await fetch("/api/upload-image", {
+            method: "POST",
+            body: fd,
+          });
+          const uploadData = await uploadRes.json();
+          if (!uploadRes.ok || !uploadData?.url) {
+            throw new Error(uploadData?.error || "Failed to upload image");
           }
-        } else if (imgPreview.url && /^https?:\/\//.test(imgPreview.url)) {
-          maybeImageUrl = imgPreview.url;
+          maybeImageUrl = uploadData.url;
+        } catch (upErr) {
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === assistantMsgId
+                ? {
+                    ...m,
+                    content: "Failed to upload image. Please try again.",
+                    kind: "text" as const,
+                    previews: undefined,
+                  }
+                : m,
+            ),
+          );
+          setIsTyping(false);
+          return;
+        }
+      } else {
+        const previewUrl = imgPreview?.url ?? "";
+        if (previewUrl && /^https?:\/\//.test(previewUrl)) {
+          maybeImageUrl = previewUrl;
         }
       }
 
@@ -306,11 +308,10 @@ export default function AnmixDashboard() {
               : m,
           ),
         );
-      } catch (e) {
-        const errMessage =
-          e instanceof Error
-            ? e.message
-            : "Image enhancement failed. Please try again.";
+      } catch (e: unknown) {
+        const err = e as { message?: string };
+        const errMessage: string =
+          typeof err.message === "string" ? err.message : "Image enhancement failed. Please try again.";
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantMsgId
@@ -1239,7 +1240,7 @@ export default function AnmixDashboard() {
     };
 
     load();
-  }, [isLoaded, isSignedIn, user?.id, useSupabaseChat]);
+  }, [isLoaded, isSignedIn, useSupabaseChat, user]);
 
   // Load saved card from localStorage on mount
   useEffect(() => {
@@ -1285,7 +1286,7 @@ export default function AnmixDashboard() {
         // ignore storage errors
       }
     }
-  }, [chatHistory, isLoaded, isSignedIn, user?.id, useSupabaseChat]);
+  }, [chatHistory, isLoaded, isSignedIn, useSupabaseChat, user]);
 
   return (
     <div className="min-h-screen text-foreground bg-[#010104] dark:bg-[#010104] font-sans selection:bg-[#0055FF]/30 overflow-hidden relative">

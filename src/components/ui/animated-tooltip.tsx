@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import React, { useState, useRef } from "react";
 import {
@@ -75,9 +76,9 @@ export const AnimatedTooltip = ({
                                 }}
                                 className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl"
                             >
-                                <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-linear-to-r from-transparent via-primary to-transparent" />
-                                <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-linear-to-r from-transparent via-primary to-transparent" />
-                                <div className="relative z-30 text-base bg-linear-to-r from-foreground to-foreground/70 text-transparent bg-clip-text font-medium">
+                                <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-primary to-transparent" />
+                                <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-primary to-transparent" />
+                                <div className="relative z-30 text-base bg-gradient-to-r from-foreground to-foreground/70 text-transparent bg-clip-text font-medium">
                                     {item.name}
                                 </div>
                                 <div className="text-sm text-muted-foreground">{item.designation}</div>

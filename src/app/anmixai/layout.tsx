@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import FlareCursor from "@/components/flare-cursor";
-import { VisualEditsMessenger } from "orchids-visual-edits";
 import { ClerkClientProvider } from "@/components/clerk-client-provider";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "ANMIX AI - Neural OS",
@@ -15,7 +15,7 @@ const hasClerkKey = clerkPubKey.length > 0 && !clerkPubKey.includes("YOUR_KEY");
 export default function AnmixAILayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const inner = (
     <ThemeProvider
@@ -26,7 +26,6 @@ export default function AnmixAILayout({
     >
       <FlareCursor />
       {children}
-      <VisualEditsMessenger />
     </ThemeProvider>
   );
 

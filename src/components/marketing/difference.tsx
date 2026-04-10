@@ -111,7 +111,7 @@ const Difference = () => {
                     </motion.div>
 
                     <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center justify-center lg:pt-14">
-                        <div className="absolute inset-y-0 h-full w-px bg-linear-to-b from-transparent via-primary/30 to-transparent" />
+                        <div className="absolute inset-y-0 h-full w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
 
                         <motion.div
                             className="relative z-10 size-14 rounded-full bg-background border-2 border-primary/40 flex items-center justify-center shadow-[0_0_30px_rgba(0,85,255,0.4)]"

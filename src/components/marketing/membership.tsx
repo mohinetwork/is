@@ -134,7 +134,7 @@ const Membership = () => {
                                 <>
                                     <div className="absolute top-0 inset-x-0 h-6 w-4/5 mx-auto bg-primary blur-[3rem]">
                                     </div>
-                                    <div className="absolute top-0 inset-x-0 h-px w-full bg-linear-to-r from-primary/0 via-primary/50 to-primary/0"></div>
+                                    <div className="absolute top-0 inset-x-0 h-px w-full bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0"></div>
                                 </>
                             )}
 
@@ -273,8 +273,8 @@ const Membership = () => {
                                         </div>
                                     ))}
                                 </Marquee>
-                                <div className="from-cardbox pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r"></div>
-                                <div className="from-cardbox pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l"></div>
+                                <div className="from-cardbox pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+                                <div className="from-cardbox pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ const Footer = () => {
 
     return (
         <footer className="w-full relative mt-16 lg:mt-24 overflow-hidden">
-            <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-foreground/0 via-foreground/20 to-foreground/0" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-foreground/0 via-foreground/20 to-foreground/0" />
             <div className="absolute top-0 inset-x-0 w-1/2 mx-auto h-4 bg-foreground/40 blur-[4rem]" />
 
             <Wrapper className="py-12">
