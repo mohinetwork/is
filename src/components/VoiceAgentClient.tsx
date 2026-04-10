@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import "@deepgram/browser-agent";
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "deepgram-agent": React.DetailedHTMLProps<
