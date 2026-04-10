@@ -249,8 +249,11 @@ export default function AnmixDashboard() {
             setIsTyping(false);
             return;
           }
-        } else if (imgPreview.url && /^https?:\/\//.test(imgPreview.url)) {
-          maybeImageUrl = imgPreview.url;
+        } else {
+          const previewUrl = imgPreview?.url;
+          if (previewUrl && /^https?:\/\//.test(previewUrl!)) {
+            maybeImageUrl = previewUrl;
+          }
         }
       }
 
@@ -309,7 +312,7 @@ export default function AnmixDashboard() {
       } catch (e) {
         const errMessage =
           e instanceof Error
-            ? e.message
+            ? (e as Error).message
             : "Image enhancement failed. Please try again.";
         setMessages((prev) =>
           prev.map((m) =>
@@ -402,8 +405,11 @@ export default function AnmixDashboard() {
             setIsTyping(false);
             return;
           }
-        } else if (imgPreview.url && /^https?:\/\//.test(imgPreview.url)) {
-          maybeImageUrl = imgPreview.url;
+        } else {
+          const previewUrl = imgPreview?.url;
+          if (previewUrl && /^https?:\/\//.test(previewUrl!)) {
+            maybeImageUrl = previewUrl;
+          }
         }
       }
       if (!maybeImageUrl && chatMode === "image-edit") {
@@ -1015,7 +1021,7 @@ export default function AnmixDashboard() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(false);
-  const [chatMode, setChatMode] = useState<"chat" | "image-gen" | "image-edit" | "video-gen">("chat");
+  const [chatMode, setChatMode] = useState<"chat" | "image-gen" | "image-edit" | "video-gen" | "image-enhance">("chat");
   const { user, isLoaded, isSignedIn } = useUser();
   const { signOut } = useClerk();
   const [showClerkAuthModal, setShowClerkAuthModal] = useState(false);
@@ -2114,7 +2120,7 @@ export default function AnmixDashboard() {
                       className="flex gap-3 items-center"
                     >
                       <div className="flex items-center gap-2 mt-1 text-xs text-white/60">
-                        <Spinner variant="pinwheel" className="w-4 h-4 text-[#60a5ff]" />
+                        <Spinner className="w-4 h-4 text-[#60a5ff]" />
                         <span className="anmix-shimmer-text">ANMIX AI is thinking…</span>
                       </div>
                     </motion.div>

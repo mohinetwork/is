@@ -42,6 +42,8 @@ interface Props extends React.ComponentProps<"button">, VariantProps<typeof butt
     asChild?: boolean
 }
 
+export type ButtonProps = Props
+
 const Button = React.forwardRef<HTMLButtonElement, Props>(
     ({ className, variant, size, asChild = false, children, ...props }, ref) => {
         const Comp = asChild ? Slot : "button"
