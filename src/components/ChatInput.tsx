@@ -1,3 +1,6 @@
+"use client";
+/* eslint-disable @next/next/no-img-element */
+
 import React, { useRef, useEffect, useState } from 'react';
 import GenerateButton from './GenerateButton';
 import FileUpload from '@/components/ui/file-upload';

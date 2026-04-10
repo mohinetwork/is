@@ -5,13 +5,14 @@ import Providers from "@/components/global/providers";
 import FlareCursor from "@/components/global/flare-cursor";
 import LoadingScreen from "@/components/global/loading-screen";
 import Script from "next/script";
+import type { ReactNode } from "react";
 
 export const metadata = generateMetadata();
 
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     return (
         <html lang="en" suppressHydrationWarning>

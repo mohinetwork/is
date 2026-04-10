@@ -173,7 +173,7 @@ const Hero = () => {
                             />
                         </div>
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 z-20 w-full h-3/4 bg-linear-to-t from-background to-background/0 from-10% pointer-events-none" />
+                    <div className="absolute inset-x-0 bottom-0 z-20 w-full h-3/4 bg-gradient-to-t from-background to-background/0 from-10% pointer-events-none" />
 
                     <div className="absolute top-0 inset-x-0 w-3/5 mx-auto h-1/10 rounded-full bg-primary blur-[4rem] opacity-40 -z-10"></div>
 

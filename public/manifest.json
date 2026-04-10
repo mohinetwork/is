@@ -1,0 +1,20 @@
+{
+  "name": "ANMIX AI",
+  "short_name": "ANMIX",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#010104",
+  "theme_color": "#0055FF",
+  "icons": [
+    {
+      "src": "/images/anmix-logo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

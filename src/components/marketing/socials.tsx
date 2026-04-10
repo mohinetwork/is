@@ -87,7 +87,7 @@ const Socials = () => {
         <section className="w-full py-12">
             <Wrapper>
                 <Container animation="fadeUp" className="text-center">
-                    <p className="text-sm text-transparent font-heading font-medium bg-clip-text bg-linear-to-r from-white/10 via-white/70 to-white/10 uppercase tracking-wider">
+                    <p className="text-sm text-transparent font-heading font-medium bg-clip-text bg-gradient-to-r from-white/10 via-white/70 to-white/10 uppercase tracking-wider">
                         Works seamlessly with
                     </p>
                 </Container>

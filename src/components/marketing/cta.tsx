@@ -75,7 +75,7 @@ const Cta = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
-                                className="text-3xl md:text-4xl lg:text-5xl font-medium bg-linear-to-r from-foreground to-foreground/70 text-transparent bg-clip-text leading-[1.2] mt-8 max-w-3xl"
+                                className="text-3xl md:text-4xl lg:text-5xl font-medium bg-gradient-to-r from-foreground to-foreground/70 text-transparent bg-clip-text leading-[1.2] mt-8 max-w-3xl"
                             >
                                 All In One Open Sorce Ai
                                 <br />
