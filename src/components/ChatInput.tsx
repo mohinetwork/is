@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import Image from "next/image";
 import GenerateButton from './GenerateButton';
 import FileUpload from '@/components/ui/file-upload';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,9 +26,11 @@ const OPENAI_SVG = (
 );
 
 const ANMIX_LOGO = (
-  <img
+  <Image
     src="/anmix-logo.png"
     alt="ANMIX"
+    width={16}
+    height={16}
     className="w-4 h-4 object-contain"
     draggable={false}
   />
@@ -268,12 +271,15 @@ const ChatInput: React.FC<ChatInputProps> = ({
             {pendingFiles.map((file, idx) => (
               <div key={idx} className="relative group bg-[#161C2C] border border-white/10 rounded-xl p-1.5 pr-7 flex items-center gap-2 max-w-[260px]">
                 {file.type === 'image' ? (
-                  <div className="w-9 h-9 rounded-lg overflow-hidden bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
+                  <div className="relative w-9 h-9 rounded-lg overflow-hidden bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                     {file.url ? (
-                      <img
+                      <Image
                         src={file.url}
                         alt={file.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="36px"
+                        className="object-cover"
+                        unoptimized
                       />
                     ) : (
                       <ImageIcon size={14} />

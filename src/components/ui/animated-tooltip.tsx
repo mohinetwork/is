@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import {
     motion,
     useTransform,
@@ -84,10 +85,10 @@ export const AnimatedTooltip = ({
                             </motion.div>
                         )}
                     </AnimatePresence>
-                    <img
+                    <Image
                         onMouseMove={handleMouseMove}
-                        height={100}
-                        width={100}
+                        height={40}
+                        width={40}
                         src={item.image}
                         alt={item.name}
                         className="relative m-0! size-10 rounded-full border-2 border-foreground/80 object-cover object-top p-0! transition duration-500 group-hover:z-30"

@@ -74,6 +74,7 @@ import {
   DropdownSeparator,
 } from "@/components/ui/basic-dropdown";
 import Link from "next/link";
+import Image from "next/image";
 import { useUser, useClerk, SignUp, SignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
@@ -1240,7 +1241,7 @@ export default function AnmixDashboard() {
     };
 
     load();
-  }, [isLoaded, isSignedIn, user?.id, useSupabaseChat]);
+  }, [isLoaded, isSignedIn, useSupabaseChat, user]);
 
   // Load saved card from localStorage on mount
   useEffect(() => {
@@ -1286,7 +1287,7 @@ export default function AnmixDashboard() {
         // ignore storage errors
       }
     }
-  }, [chatHistory, isLoaded, isSignedIn, user?.id, useSupabaseChat]);
+  }, [chatHistory, isLoaded, isSignedIn, useSupabaseChat, user]);
 
   return (
     <div className="min-h-screen text-foreground bg-[#010104] dark:bg-[#010104] font-sans selection:bg-[#0055FF]/30 overflow-hidden relative">
@@ -1358,9 +1359,11 @@ export default function AnmixDashboard() {
                 desktopSidebarCollapsed ? "w-10 h-10 p-1" : "w-9 h-9",
               )}
             >
-              <img
+              <Image
                 src="/anmix-logo.png"
                 alt="ANMIX AI"
+                width={28}
+                height={28}
                 className={cn(
                   "object-contain select-none",
                   desktopSidebarCollapsed ? "w-7 h-7" : "w-7 h-7",
@@ -1431,11 +1434,15 @@ export default function AnmixDashboard() {
                 <Dropdown>
                   <DropdownTrigger className="cursor-pointer">
                     {user?.imageUrl ? (
-                      <img
+                      <Image
                         src={user.imageUrl}
                         alt={user.fullName || "Profile"}
+                        width={40}
+                        height={40}
                         className="h-10 w-10 rounded-full border-2 border-white/20 object-cover"
                         title={user.fullName || "Profile"}
+                        sizes="40px"
+                        unoptimized
                       />
                     ) : (
                       <div
@@ -1573,10 +1580,14 @@ export default function AnmixDashboard() {
                 <Dropdown>
                   <DropdownTrigger className="cursor-pointer flex items-center gap-3 w-full">
                     {user?.imageUrl ? (
-                      <img
+                      <Image
                         src={user.imageUrl}
                         alt={user.fullName || "Profile"}
+                        width={40}
+                        height={40}
                         className="h-10 w-10 rounded-full border-2 border-white/20 object-cover"
+                        sizes="40px"
+                        unoptimized
                       />
                     ) : (
                       <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#6366f1] to-[#ec4899] flex items-center justify-center text-xs font-bold text-white border border-white/20">
@@ -1804,17 +1815,23 @@ export default function AnmixDashboard() {
                         }`}
                       >
                         {msg.role === "assistant" ? (
-                          <img
+                          <Image
                             src="/anmix-logo.png"
                             alt="ANMIX"
+                            width={24}
+                            height={24}
                             className="w-6 h-6 object-contain"
                             draggable={false}
                           />
                         ) : user?.imageUrl ? (
-                          <img
+                          <Image
                             src={user.imageUrl}
                             alt={user.fullName || "You"}
+                            width={24}
+                            height={24}
                             className="w-6 h-6 rounded-full object-cover"
+                            sizes="24px"
+                            unoptimized
                           />
                         ) : (
                           <User size={10} />
@@ -1935,7 +1952,15 @@ export default function AnmixDashboard() {
                                             userSelect: "none",
                                           }}
                                         >
-                                          <img src={file.url} alt={file.name} className="w-full h-48 object-cover" />
+                                          <Image
+                                            src={file.url}
+                                            alt={file.name}
+                                            fill
+                                            sizes="(max-width: 768px) 90vw, 480px"
+                                            className="object-cover"
+                                            unoptimized
+                                            draggable={false}
+                                          />
                                           {file.status === "done" && (
                                             <div className="absolute bottom-2 right-2 flex items-center gap-1.5">
                                                 <button
@@ -1966,16 +1991,30 @@ export default function AnmixDashboard() {
                                       )}
                                     </ImageGeneration>
                                   ) : isUploadedImage ? (
-                                    <div className="w-full h-40">
+                                    <div className="relative w-full h-40">
                                       {file.url && (
-                                        <img src={file.url} alt={file.name} className="w-full h-full object-cover" />
+                                        <Image
+                                          src={file.url}
+                                          alt={file.name}
+                                          fill
+                                          sizes="(max-width: 768px) 90vw, 400px"
+                                          className="object-cover"
+                                          unoptimized
+                                        />
                                       )}
                                     </div>
                                   ) : (
                                     <div className="w-full rounded-lg overflow-hidden bg-white/5 border border-white/10 mb-1">
-                                      <div className="w-full h-32">
+                                      <div className="relative w-full h-32">
                                         {file.url && (
-                                          <img src={file.url} alt={file.name} className="w-full h-full object-cover" />
+                                          <Image
+                                            src={file.url}
+                                            alt={file.name}
+                                            fill
+                                            sizes="(max-width: 768px) 90vw, 360px"
+                                            className="object-cover"
+                                            unoptimized
+                                          />
                                         )}
                                       </div>
                                     </div>
@@ -2081,7 +2120,15 @@ export default function AnmixDashboard() {
                     >
                       <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center border order-first bg-white/5 border-white/10 text-slate-400 backdrop-blur-xl">
                         {user?.imageUrl ? (
-                          <img src={user.imageUrl} alt="You" className="w-6 h-6 rounded-full object-cover" />
+                          <Image
+                            src={user.imageUrl}
+                            alt="You"
+                            width={24}
+                            height={24}
+                            className="w-6 h-6 rounded-full object-cover"
+                            sizes="24px"
+                            unoptimized
+                          />
                         ) : (
                           <User size={10} />
                         )}
@@ -2094,8 +2141,15 @@ export default function AnmixDashboard() {
                           {pendingImagePreviews.map((file, fIdx) => (
                             <div key={fIdx} className="dark:bg-white/5 bg-slate-50/95 rounded-xl p-2.5 flex flex-col gap-2 border border-white/10 border-blue-500/30 shadow-md max-w-[280px]">
                               {file.url && (
-                                <div className="w-full rounded-lg overflow-hidden bg-white/5">
-                                  <img src={file.url} alt={file.name} className="w-full h-40 object-cover" />
+                                <div className="relative w-full rounded-lg overflow-hidden bg-white/5 h-40">
+                                  <Image
+                                    src={file.url}
+                                    alt={file.name}
+                                    fill
+                                    sizes="(max-width: 768px) 90vw, 320px"
+                                    className="object-cover"
+                                    unoptimized
+                                  />
                                 </div>
                               )}
                               <p className="text-[9px] font-bold text-slate-300 truncate">{file.name}</p>
@@ -2269,11 +2323,14 @@ export default function AnmixDashboard() {
                 touchAction: "none",
               }}
             >
-              <img
+              <Image
                 src={imageViewerUrl}
                 alt="Generated"
+                width={1920}
+                height={1080}
                 className="w-full h-auto object-contain pointer-events-none"
                 draggable={false}
+                unoptimized
               />
               {/* Overlay blocks right-click/long-press save - captures all pointer events */}
               <div
